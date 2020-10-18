@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Dashboard</title>
+  </head>
+  <style>
+    body{
+      background-color: #f6fef6;
+    }
+    a:link, a:visited {
+  background-color: #66CD00;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  }
+  h1,h4,h5{
+    color : #659D32;
+  }
+  /* .content {
+    max-width: 500px;
+    margin: auto;
+    margin-top: 100px !important;
+  margin-left: 300px !important;
+  } */
+  .user{
+margin-left: 100px;
+  }
+  a:hover, a:active {
+  background-color: #66CD00;
+  }
+
+
+
+  .flex-container {
+  display: flex;
+}
+
+.flex-item-left {
+  flex: 0 0 65%;
+}
+
+.flex-item-right {
+  flex: 1;
+}
+
+/* Responsive layout - makes a one column-layout instead of a two-column layout */
+@media (max-width: 800px) {
+  .flex-item-right, .flex-item-left {
+    flex: 100%;
+  }
+}
+
+  </style>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item-left">
+    <h1>Dashboard</h1>
+
+  <h4>Hello <%= user.name %> <br><div class="user"> <h5>Github Profile : <em><%= user.github %></em> <br> LinkedIn Profile : <em><%= user.linkedin %></em></h5></div></h4>
+</div>
+<div class="flex-item-right">
+    <form action="/users/dashboard" method="POST">
+    <div>
+      <br>
+      <h4>Update your Profile</h4>
+      <h5>Update Github profile link</h5>
+      <input
+        id="github"
+        name="github"
+        placeholder="enter github link"
+        required
+      />
+    </div>
+    <div>
+      <h5>Update LinkedIn profile link</h5>
+      <input
+        id="linkedin"
+        name="linkedin"
+        placeholder="enter linkedin link"
+        required
+      />
+    </div>
+    <div>
+      <input type="submit" value="Update Profile" />
+    </div>
+  </form>
+
+  <a href="/users/logout">Logout</a>
+  
+  <a href="/users/delete">Delete account</a>
+  </div>
+  </div>
+  </body>
+</html>
